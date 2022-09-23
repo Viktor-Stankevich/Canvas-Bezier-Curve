@@ -47,7 +47,7 @@ class DrawCurve extends CreateCanvas {
       (options[i].figure == 'Square') ? square(this.ctx, options[i]) : false;
       
       function bezierCurve(ctx, options) {
-        (options.numberControlPoints <= 2) ? quadraticCurve(ctx, options) : false ;
+        (options.quadraticCurve == true) ? quadraticCurve(ctx, options) : false ;
         
         function quadraticCurve(ctx, options) {
           console.log(options.endX)
