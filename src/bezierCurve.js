@@ -28,3 +28,39 @@ class CreateCanvas {
     }
   }
 }
+
+// Класс для создания кривой
+class DrawCurve extends CreateCanvas {
+  constructor(options) {
+    super(options);
+
+    // Вызов метода draw
+    this.draw(options.draw)
+
+  }
+
+  // Рисование кривой
+  draw(options) {
+    for (let i = 0; i < options.length; i++) {
+
+      (options[i].figure == 'BezierCurve') ? bezierCurve(this.ctx, options[i]) :
+      (options[i].figure == 'Square') ? square(this.ctx, options[i]) : false;
+      
+      function bezierCurve(ctx, options) {
+        (options.numberControlPoints <= 2) ? quadraticCurve(ctx, options) : false ;
+        
+        function quadraticCurve(ctx, options) {
+          console.log(options.endX)
+          ctx.beginPath();
+          ctx.moveTo(options.startX, options.startY);
+          ctx.quadraticCurveTo(options.controlPoint[0].controlX,options.controlPoint[0].controlY, options.endX, options.endY);
+          (options.strokeColor) ? ctx.strokeStyle = options.strokeColor : false;
+          (options.fillColor) ? ctx.fillStyle = options.fillColor : false;
+          (options.fillColor) ? ctx.fill() : false;
+          ctx.stroke();
+        }
+      }
+
+    }
+  }
+}
