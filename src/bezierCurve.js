@@ -57,29 +57,11 @@ class DrawCurve extends CreateCanvas {
         (options.bezierCurve == true && (options.quadraticCurve == false || !options.quadraticCurve)) ? bezierCurve(ctx, options, size) : false;
         
         function quadraticCurve(ctx, options, size) {
-          console.log(size)
-          console.log(options.startX)
 
-          let _startX = options.startX;
-          let _startY = options.startY;
-          let _endX = options.endX;
-          let _endY = options.endY;
-
-          (options.startX = 'start') ?  _startX = 0 : false;
-          (options.startX === 'middle') ?  _startX = size.cx : false;
-          (options.startX == 'end') ?  _startX = size.w : false;
-
-          (options.startY == 'start') ?  _startY = 0 : false;
-          (options.startY == 'middle') ?  _startY = size.cy : false;
-          (options.startY == 'end') ?  _startY = size.h : false;
-
-          (options.endX == 'start') ?  _endX = 0 : false;
-          (options.endX == 'middle') ?  _endX = size.cx : false;
-          (options.endX == 'end') ?  _endX = size.w : false;
-
-          (options.endY == 'start') ?  _endY = 0 : false;
-          (options.endY == 'middle') ?  _endY = size.cy : false;
-          (options.endY == 'end') ?  _endY = size.h : false;
+          let _startX = size.w * (options.startX / 100);
+          let _startY = size.h * (options.startY / 100);
+          let _endX = size.w * (options.endX / 100);
+          let _endY = size.h * (options.endY / 100);
 
           ctx.beginPath();
           ctx.moveTo(_startX, _startY);
@@ -93,29 +75,11 @@ class DrawCurve extends CreateCanvas {
         }
 
         function bezierCurve(ctx, options, size) {
-          // console.log(size);
-          // console.log(options.endX);
 
-          let _startX = options.startX;
-          let _startY = options.startY;
-          let _endX = options.endX;
-          let _endY = options.endY;
-
-          (options.startX = 'start') ?  _startX = 0 : false;
-          (options.startX === 'middle') ?  _startX = size.cx : false;
-          (options.startX == 'end') ?  _startX = size.w : false;
-
-          (options.startY == 'start') ?  _startY = 0 : false;
-          (options.startY == 'middle') ?  _startY = size.cy : false;
-          (options.startY == 'end') ?  _startY = size.h : false;
-
-          (options.endX == 'start') ?  _endX = 0 : false;
-          (options.endX == 'middle') ?  _endX = size.cx : false;
-          (options.endX == 'end') ?  _endX = size.w : false;
-
-          (options.endY == 'start') ?  _endY = 0 : false;
-          (options.endY == 'middle') ?  _endY = size.cy : false;
-          (options.endY == 'end') ?  _endY = size.h : false;
+          let _startX = size.w * (options.startX / 100);
+          let _startY = size.h * (options.startY / 100);
+          let _endX = size.w * (options.endX / 100);
+          let _endY = size.h * (options.endY / 100);
 
           ctx.beginPath();
           ctx.moveTo(_startX, _startY);
