@@ -42,6 +42,7 @@ class DrawCurve extends CreateCanvas {
     super(options);
     // Вызов метода draw
     this.draw(options.draw, this.size)
+    this.animation(options.draw);
 
   }
 
@@ -99,5 +100,8 @@ class DrawCurve extends CreateCanvas {
       }
 
     }
+  }
+  animation(options) {
+
   }
 }
